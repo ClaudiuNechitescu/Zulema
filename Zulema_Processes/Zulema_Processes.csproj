@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BA03AC36-5235-4217-8840-6AF7315FED7F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Zulema_Processes</RootNamespace>
+    <AssemblyName>Zulema_Processes</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <!--Deterministic>true</Deterministic -->
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Zulema\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Zulema\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Flexygo">
+      <HintPath>..\packages\Flexygo.4.0.0.12\lib\net46\Flexygo.dll</HintPath>
+    </Reference>
+    <Reference Include="flxAccount">
+      <HintPath>..\packages\Flexygo.4.0.0.12\lib\net46\flxAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="flxDataManager">
+      <HintPath>..\packages\Flexygo.4.0.0.12\lib\net46\flxDataManager.dll</HintPath>
+    </Reference>
+    <Reference Include="flxEncoder">
+      <HintPath>..\packages\Flexygo.4.0.0.12\lib\net46\flxEncoder.dll</HintPath>
+    </Reference>
+    <Reference Include="flxEntity">
+      <HintPath>..\packages\Flexygo.4.0.0.12\lib\net46\flxEntity.dll</HintPath>
+    </Reference>
+    <Reference Include="flxEnvironment">
+      <HintPath>..\packages\Flexygo.4.0.0.12\lib\net46\flxEnvironment.dll</HintPath>
+    </Reference>
+    <Reference Include="flxGlobals">
+      <HintPath>..\packages\Flexygo.4.0.0.12\lib\net46\flxGlobals.dll</HintPath>
+    </Reference>
+    <Reference Include="flxLocalization">
+      <HintPath>..\packages\Flexygo.4.0.0.12\lib\net46\flxLocalization.dll</HintPath>
+    </Reference>
+    <Reference Include="flxMail">
+      <HintPath>..\packages\Flexygo.4.0.0.12\lib\net46\flxMail.dll</HintPath>
+    </Reference>
+    <Reference Include="flxMock">
+      <HintPath>..\packages\Flexygo.4.0.0.12\lib\net46\flxMock.dll</HintPath>
+    </Reference>
+    <Reference Include="flxObjectConfig">
+      <HintPath>..\packages\Flexygo.4.0.0.12\lib\net46\flxObjectConfig.dll</HintPath>
+    </Reference>
+    <Reference Include="flxPlugins">
+      <HintPath>..\packages\Flexygo.4.0.0.12\lib\net46\flxPlugins.dll</HintPath>
+    </Reference>
+    <Reference Include="flxPowerBI">
+      <HintPath>..\packages\Flexygo.4.0.0.12\lib\net46\flxPowerBI.dll</HintPath>
+    </Reference>
+    <Reference Include="flxSearch">
+      <HintPath>..\packages\Flexygo.4.0.0.12\lib\net46\flxSearch.dll</HintPath>
+    </Reference>
+    <Reference Include="flxSecurity">
+      <HintPath>..\packages\Flexygo.4.0.0.12\lib\net46\flxSecurity.dll</HintPath>
+    </Reference>
+    <Reference Include="flxSession">
+      <HintPath>..\packages\Flexygo.4.0.0.12\lib\net46\flxSession.dll</HintPath>
+    </Reference>
+    <Reference Include="flxSettings">
+      <HintPath>..\packages\Flexygo.4.0.0.12\lib\net46\flxSettings.dll</HintPath>
+    </Reference>
+    <Reference Include="flxSignalR">
+      <HintPath>..\packages\Flexygo.4.0.0.12\lib\net46\flxSignalR.dll</HintPath>
+    </Reference>
+    <Reference Include="flxSysProcess">
+      <HintPath>..\packages\Flexygo.4.0.0.12\lib\net46\flxSysProcess.dll</HintPath>
+    </Reference>
+    <Reference Include="flxUI">
+      <HintPath>..\packages\Flexygo.4.0.0.12\lib\net46\flxUI.dll</HintPath>
+    </Reference>
+    <Reference Include="flxUtilities">
+      <HintPath>..\packages\Flexygo.4.0.0.12\lib\net46\flxUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
