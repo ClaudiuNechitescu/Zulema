@@ -212,6 +212,63 @@ var flexygo;
         }
         utils.isSizeSmartphone = isSizeSmartphone;
         /**
+        * Says if the screen is in tactil mode.
+        * @method isTactilModeActive
+        * @return {boolean} True if tactil mode is active, false if not.
+        */
+        function isTactilModeActive() {
+            return (flexygo.storage.local.get("tactilMode") ? true : false);
+        }
+        utils.isTactilModeActive = isTactilModeActive;
+        /**
+        * Toggles tactil mode.
+        * @method toggleTactilMode
+        */
+        function toggleTactilMode() {
+            if (isTactilModeActive()) {
+                $('html').removeClass("tactilMode");
+                flexygo.storage.local.add("tactilMode", false);
+                flexygo.msg.success("Tactil Mode Desactivated");
+            }
+            else {
+                $('html').addClass("tactilMode");
+                flexygo.storage.local.add("tactilMode", true);
+                flexygo.msg.success("Tactil Mode Activated");
+            }
+            flexygo.storage.local.save();
+            $('flx-nav#mainMenu > ul > li[title="Tools"] > ul').slideToggle();
+        }
+        utils.toggleTactilMode = toggleTactilMode;
+        /**
+        * Says if the screen is in full screen mode.
+        * @method isFullScreenActive
+        * @return {boolean} True if full screen is active, false if not.
+        */
+        function isFullScreenActive() {
+            return window.innerHeight == screen.height;
+        }
+        utils.isFullScreenActive = isFullScreenActive;
+        /**
+        * Toggles full screen.
+        * @method toggleFullScreen
+        */
+        function toggleFullScreen() {
+            let oldIcon, newIcon;
+            if (isFullScreenActive()) {
+                document.exitFullscreen();
+                oldIcon = "icon-collapse";
+                newIcon = "icon-expand-4";
+            }
+            else {
+                $('html')[0].requestFullscreen();
+                oldIcon = "icon-expand-4";
+                newIcon = "icon-collapse";
+            }
+            $('#mainMenu li[title="Toggle full screen"] i').removeClass(oldIcon);
+            $('#mainMenu li[title="Toggle full screen"] i').addClass(newIcon);
+        }
+        utils.toggleFullScreen = toggleFullScreen;
+        /**
         * Says if the agent's navigator comes from a mobile.
         * @method isAgentMobile
         * @return {boolean} True if agent's navigator comes from a mobile, false if not.
@@ -872,7 +929,7 @@ var flexygo;
     };
 })(jQuery);
 // Create a jquery plugin that prints the given element.
-jQuery.fn.print = function () {
+jQuery.fn.print = function (title) {
     // NOTE: We are trimming the jQuery collection down to the
     // first element in the collection.
     if (this.size() > 1) {
@@ -912,7 +969,10 @@ jQuery.fn.print = function () {
     objDoc.write("<html>");
     objDoc.write("<head>");
     objDoc.write("<title>");
-    objDoc.write(document.title);
+    if (title)
+        objDoc.write(title);
+    else
+        objDoc.write(document.title);
     objDoc.write("</title>");
     objDoc.write(jStyleDiv.html());
     //objDoc.write(SrcDiv.html());

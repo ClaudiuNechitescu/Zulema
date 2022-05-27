@@ -483,7 +483,7 @@ var flexygo;
                         if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream)
                             input.css('-webkit-appearance', 'none');
                         let datalist = $('<ul style="display:none" class="comboOptions" />');
-                        if (flexygo.utils.isSizeMobile()) {
+                        if (flexygo.utils.isSizeMobile() || flexygo.utils.isTactilModeActive()) {
                             datalist.addClass('mobile');
                             let mobileInputDiv = $('<div class="mobileinputdiv input-group"/>').appendTo(datalist);
                             this.mobileInput = $('<input type="search" class="mobileinputdiv form-control mobileinput" autocomplete="off" />').appendTo(mobileInputDiv);
@@ -537,8 +537,7 @@ var flexygo;
                         }).off('keydown').on('keydown', (e) => {
                             var up = 38;
                             var down = 40;
-                            //var enter = 13;
-                            //var tab = 9;
+                            var enter = 13;
                             if (e.keyCode == down) {
                                 if (this.open) {
                                     if (this.datalist.children('li').length > 0) {
@@ -587,17 +586,26 @@ var flexygo;
                                 e.preventDefault();
                                 return false;
                             }
+                            else if (e.keyCode == enter) {
+                                if (this.open) {
+                                    var itms = this.datalist.children('.selected');
+                                    if (itms.length > 0 && itms.attr('data-value') != this.inputval.val()) {
+                                        itms.trigger("mousedown");
+                                    }
+                                    this.hideOptions();
+                                }
+                            }
                         }).off('change').on('change', (e) => {
                             e.stopPropagation();
                             e.preventDefault();
                         });
-                        if (!flexygo.utils.isSizeMobile()) {
+                        if (!flexygo.utils.isSizeMobile() && !flexygo.utils.isTactilModeActive()) {
                             $('#mainContent, main.pageContainer').on('scroll.dbcombo', (e) => {
                                 this.hideOptions();
                             });
                         }
                         $(window, me.closest('div.ui-dialog')).resize(() => {
-                            if (!flexygo.utils.isSizeMobile()) {
+                            if (!flexygo.utils.isSizeMobile() && !flexygo.utils.isTactilModeActive()) {
                                 this.hideOptions();
                             }
                             else {
@@ -608,7 +616,8 @@ var flexygo;
                             var up = 38;
                             var down = 40;
                             var tab = 9;
-                            if (e.keyCode != up && e.keyCode != down && e.keyCode != tab) {
+                            var enter = 13;
+                            if (e.keyCode != up && e.keyCode != down && e.keyCode != tab && e.keyCode != enter) {
                                 if (this.timer) {
                                     clearTimeout(this.timer);
                                     this.timer = null;
@@ -696,7 +705,7 @@ var flexygo;
                         else {
                             const isIphone = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
                             this.scrollTopPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-                            this.datalist.css({ position: 'fixed', top: 3, left: 5, width: "calc(100% - 10px)", 'max-height': (isIphone) ? '48%' : '98%', 'padding-top': 30, 'box-shadow': '0 -6px 20px 4px rgba(0, 0, 0, 0.15), 0 -2px 10px 0px rgba(0, 0, 0, 0.20)' });
+                            this.datalist.css({ position: 'fixed', top: 3, left: 5, width: "calc(100% - 10px)", 'max-height': (isIphone) ? '48%' : (flexygo.utils.isTactilModeActive ? '50%' : '98%'), 'padding-top': 30, 'box-shadow': '0 -6px 20px 4px rgba(0, 0, 0, 0.15), 0 -2px 10px 0px rgba(0, 0, 0, 0.20)' });
                             if (isIphone)
                                 $(document).scrollTop(-innerHeight);
                             this.mobileInput.val(this.input.val());
@@ -805,6 +814,9 @@ var flexygo;
                             }
                             else {
                                 elm = this.getListItem(data[i][this.options.SQLValueField], data[i][this.options.SQLDisplayField], data[i][this.options.SQLDisplayField]);
+                            }
+                            if (!flexygo.utils.isBlank(this.input.val()) && i == 0) {
+                                elm.addClass("selected");
                             }
                             this.datalist.append(elm);
                         }

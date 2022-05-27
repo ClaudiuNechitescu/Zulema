@@ -1,8 +1,8 @@
-import { r as registerInstance, m as createEvent, j as h, l as Host, k as getElement } from './index-5503da0a.js';
-import { g as getIonMode } from './ionic-global-86c7eac7.js';
+import { r as registerInstance, m as createEvent, j as h, l as Host, k as getElement } from './index-86ac49ff.js';
+import { g as getIonMode } from './ionic-global-0f98fe97.js';
 import { h as findItemLabel, d as getAriaLabel, e as renderHiddenInput } from './helpers-719f4c54.js';
 import './hardware-back-button-aacf3d12.js';
-import { c as popoverController, f as actionSheetController, g as alertController } from './overlays-7bcfaafb.js';
+import { c as popoverController, f as actionSheetController, g as alertController } from './overlays-5302658e.js';
 import { h as hostContext } from './theme-f934266c.js';
 
 const watchForOptions = (containerEl, tagName, onChange) => {

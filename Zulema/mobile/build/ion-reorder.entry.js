@@ -1,5 +1,5 @@
-import { r as registerInstance, j as h, l as Host, k as getElement } from './index-5503da0a.js';
-import { g as getIonMode } from './ionic-global-86c7eac7.js';
+import { r as registerInstance, j as h, l as Host, k as getElement } from './index-86ac49ff.js';
+import { g as getIonMode } from './ionic-global-0f98fe97.js';
 
 const reorderIosCss = ":host([slot]){display:none;line-height:0;z-index:100}.reorder-icon{display:block;font-size:22px}.reorder-icon{font-size:34px;opacity:0.4}";
 

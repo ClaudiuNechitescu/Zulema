@@ -192,7 +192,7 @@ declare namespace flexygo.nav {
     * @param {string} filter - Object or collection filter
     * @param {string} targetid - Target to open the window
    */
-    function openPrintPage(objectName: string, objectWhere: string, templateId: string, targetid: string, filter?: string): void;
+    function openPrintPage(objectName: string, objectWhere: string, templateId: string, targetid: string, filter?: string, descrip?: boolean): void;
     /**
    * Gets help content
    * @method GetHelpContent

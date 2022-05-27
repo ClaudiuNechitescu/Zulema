@@ -518,7 +518,9 @@ var flexygo;
                             this.render();
                             this.loadSearcher();
                             this.loadPager();
-                            this.loadCount();
+                            if (this.pagerConfig) {
+                                this.loadCount();
+                            }
                             this.savedSearches = response.SavedSearches;
                             this.searchSettings = response.SearchSettings;
                             if (refreshFilters && response.SearchSettings) {

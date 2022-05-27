@@ -66,6 +66,28 @@ declare namespace flexygo.utils {
        */
     function isSizeSmartphone(): boolean;
     /**
+    * Says if the screen is in tactil mode.
+    * @method isTactilModeActive
+    * @return {boolean} True if tactil mode is active, false if not.
+    */
+    function isTactilModeActive(): boolean;
+    /**
+    * Toggles tactil mode.
+    * @method toggleTactilMode
+    */
+    function toggleTactilMode(): void;
+    /**
+    * Says if the screen is in full screen mode.
+    * @method isFullScreenActive
+    * @return {boolean} True if full screen is active, false if not.
+    */
+    function isFullScreenActive(): boolean;
+    /**
+    * Toggles full screen.
+    * @method toggleFullScreen
+    */
+    function toggleFullScreen(): void;
+    /**
     * Says if the agent's navigator comes from a mobile.
     * @method isAgentMobile
     * @return {boolean} True if agent's navigator comes from a mobile, false if not.

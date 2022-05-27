@@ -4,7 +4,7 @@ BEGIN TRY
 
 MERGE INTO [AspNetUsers] AS Target
 USING (VALUES
-  (N'b7a2950e-4a5c-4c10-b93a-b2698279b4df',N'users',N'default',N'claudiu116@hotmail.com',0,NULL,N'34a47101-78b9-4a3d-9828-3becaf9587d0',NULL,0,0,NULL,1,0,N'clne',NULL,NULL,NULL,N'~/img/Avatars/avatar_blank.png',N'Claudiu Andrei',N'Nechitescu',N'clne',N'es-ES',NULL,NULL,0,0,50,60,1)
+  (N'2',N'pacientes',N'pacientes',N'claudiu116@hotmail.com',1,N'APq4wIcUL1BvwjP/ISwh9PHMyeFc+VWMOL7ttT5bC0zyj4KdcMwXRZVK6g0IN+9WGg==',N'34a47101-78b9-4a3d-9828-3becaf9587d0',NULL,0,0,NULL,1,0,N'clne',NULL,N'1',NULL,N'~/custom/avatars/31de93fa-2598-4e3e-b400-e3e7bd895e7d.png',N'Claudiu Andrei',N'Nechitescu',N'clne',N'es-ES',NULL,NULL,0,0,50,60,1)
 ) AS Source ([Id],[RoleId],[ProfileName],[Email],[EmailConfirmed],[PasswordHash],[SecurityStamp],[PhoneNumber],[PhoneNumberConfirmed],[TwoFactorEnabled],[LockoutEndDateUtc],[LockoutEnabled],[AccessFailedCount],[UserName],[IPGroup],[Reference],[SubReference],[Avatar],[Name],[SurName],[NickName],[CultureId],[MailAccountId],[Mode],[MustChangePassword],[BackLocation],[LocationRadius],[Inaccuracy],[OriginId])
 ON (Target.[Id] = Source.[Id])
 WHEN MATCHED AND (

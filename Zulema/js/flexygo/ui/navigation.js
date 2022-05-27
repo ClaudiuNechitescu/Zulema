@@ -549,7 +549,8 @@ var flexygo;
                 flexygo.utils.asyncSleep(0).then(() => {
                     let templateId = reportConfig.data.TemplateId.Value;
                     let filter = reportConfig.data.FilterSentence.Value;
-                    flexygo.nav.openPrintPage(objectname, objectwhere, templateId, targetid, filter);
+                    let descrip = reportConfig.data.ReportDescrip.Value;
+                    flexygo.nav.openPrintPage(objectname, objectwhere, templateId, targetid, filter, descrip);
                 });
             }
             else {
@@ -743,7 +744,7 @@ var flexygo;
         * @param {string} filter - Object or collection filter
         * @param {string} targetid - Target to open the window
        */
-        function openPrintPage(objectName, objectWhere, templateId, targetid, filter) {
+        function openPrintPage(objectName, objectWhere, templateId, targetid, filter, descrip) {
             //Hide menu when page loaded
             if (!flexygo.utils.isSizeMobile()) {
                 $('#mainMenu').find('.item-opened').parent().find('ul').slideUp(flexygo.utils.animationTime);
@@ -766,7 +767,7 @@ var flexygo;
             //    repbody +='</div><div class="report" ></div > </div>'
             //    pageContainer.html(repbody);
             //    pageContainer.find('.report').html(htmlText);
-            $(htmlText).print();
+            $(htmlText).print(descrip);
             $('body > .aboveLoading').remove();
         }
         nav.openPrintPage = openPrintPage;

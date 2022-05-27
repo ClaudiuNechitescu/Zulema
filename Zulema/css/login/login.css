@@ -65,6 +65,22 @@ a {
     border-radius: 10px;
 }
 
+    .divlogin .flip-card, #license .flip-card {
+        margin: 0 auto;
+        width: 320px;
+        height: 100px;
+    }
+
+    .divlogin .flip-card-front, #license .flip-card-front {
+        width: 320px;
+        height: 100px;
+    }
+
+    .divlogin .flip-card-back, #license .flip-back {
+        width: 320px;
+        height: 100px;
+    }
+
 .logo {
     background-image: url('../../img/logo.png');
     background-repeat: no-repeat;

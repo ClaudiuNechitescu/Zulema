@@ -403,7 +403,7 @@ var flexygo;
                                         xAxes: [{
                                                 display: true,
                                                 scaleLabel: {
-                                                    display: true,
+                                                    display: options.Showlabels,
                                                     labelString: this.Labels
                                                 }
                                             }],
@@ -411,7 +411,7 @@ var flexygo;
                                                 display: true,
                                                 stacked: false,
                                                 scaleLabel: {
-                                                    display: true,
+                                                    display: options.Showlabels,
                                                     labelString: this.Values
                                                 }
                                             }]
@@ -486,7 +486,7 @@ var flexygo;
                                     scales: {
                                         xAxes: [{
                                                 scaleLabel: {
-                                                    display: true,
+                                                    display: options.Showlabels,
                                                     labelString: this.Labels
                                                 },
                                                 ticks: {
@@ -495,7 +495,7 @@ var flexygo;
                                             }],
                                         yAxes: [{
                                                 scaleLabel: {
-                                                    display: true,
+                                                    display: options.Showlabels,
                                                     labelString: this.Values
                                                 },
                                                 ticks: {

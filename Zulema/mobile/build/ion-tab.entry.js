@@ -1,4 +1,4 @@
-import { r as registerInstance, h as Build, j as h, l as Host, k as getElement } from './index-5503da0a.js';
+import { r as registerInstance, h as Build, j as h, l as Host, k as getElement } from './index-86ac49ff.js';
 import './helpers-719f4c54.js';
 import { a as attachComponent } from './framework-delegate-1fd39b54.js';
 

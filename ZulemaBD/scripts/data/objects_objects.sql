@@ -4,7 +4,7 @@ BEGIN TRY
 
 MERGE INTO [Objects_Objects] AS Target
 USING (VALUES
-  (N'z_paciente',N'sysChatters',N'Nombre=DestinationObjectId|''z_paciente''=DestinationObjectName',N'Nombre=DestinationObjectId|''z_paciente''=DestinationObjectName',1,0,0,0,1,1)
+  (N'z_chat',N'sysChatters',N'IdEspecialista=DestinationObjectId|''z_chat''=DestinationObjectName',N'IdEspecialista=DestinationObjectId|''z_chat''=DestinationObjectName',1,0,0,0,1,1)
 ) AS Source ([ObjectName],[ChildCollection],[ObjectRelation],[ObjectDefaults],[ShowInMenu],[ShowInAnalysis],[OneToOneRelation],[Order],[RemoveOnDelete],[OriginId])
 ON (Target.[ChildCollection] = Source.[ChildCollection] AND Target.[ObjectName] = Source.[ObjectName])
 WHEN MATCHED AND (

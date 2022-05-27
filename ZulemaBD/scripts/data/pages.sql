@@ -4,11 +4,18 @@ BEGIN TRY
 
 MERGE INTO [Pages] AS Target
 USING (VALUES
-  (N'z_pg_calendario_paciente',N'generic',NULL,NULL,N'default',N'Calendario',N'vcalendar-1',N'Calendario paciente',NULL,NULL,0,NULL,0,0,0,NULL,0,1)
- ,(N'z_pg_chat',N'generic',N'z_paciente',NULL,N'default',N'Chat',N'chat-online-1',N'Chat',NULL,NULL,0,NULL,0,0,0,NULL,0,1)
- ,(N'z_pg_especialistas',N'list',NULL,NULL,N'default',N'Especialistas',N'nurse1',N'Especialistas',NULL,NULL,0,NULL,0,0,0,NULL,0,1)
- ,(N'z_pg_informes_paciente',N'list',NULL,NULL,N'default',N'Informes',N'file-text-o',N'Informes paciente',NULL,NULL,0,NULL,0,0,0,NULL,0,1)
+  (N'06443971-41C9-4888-8D56-123885F87A61',N'list',N'z_tarea',NULL,N'default',N'list z_tarea',N'noicon',N'{{ObjectDescrip}}',NULL,NULL,0,NULL,0,1,0,NULL,0,1)
+ ,(N'z_pg_calendario_especialista',N'generic',NULL,NULL,N'default',N'Calendario',N'vcalendar-1',N'Calendario paciente',NULL,NULL,0,NULL,0,0,0,NULL,0,1)
+ ,(N'z_pg_calendario_paciente',N'generic',NULL,NULL,N'default',N'Calendario',N'vcalendar-1',N'Calendario paciente',NULL,NULL,0,NULL,0,0,0,NULL,0,1)
+ ,(N'z_pg_chat',N'generic',N'z_chat',NULL,N'syslayout-5',N'Chat',N'chat-online-1',N'Chat',NULL,NULL,0,NULL,0,0,0,NULL,0,1)
+ ,(N'z_pg_especialistas',N'list',N'z_especialista',NULL,N'default',N'Especialistas',N'nurse1',N'Especialistas',NULL,NULL,0,NULL,0,0,0,NULL,0,1)
+ ,(N'z_pg_informes_paciente',N'list',NULL,NULL,N'syslayout-14',N'Informes',N'file-text-o',N'Informes paciente',NULL,NULL,0,NULL,0,0,0,NULL,0,1)
+ ,(N'z_pg_inicio_guest',N'generic',NULL,N'webguest',N'default',N'Página inicio',N'noicon',N'Página inicio',NULL,NULL,0,N'body{background-image:url(''/zulema/img/principal.jpg'')}',0,0,0,NULL,0,1)
+ ,(N'z_pg_paciente_view',N'view',N'z_paciente',NULL,N'default',N'Paciente',N'noicon',N'Paciente',NULL,NULL,0,NULL,0,0,0,NULL,0,1)
+ ,(N'z_pg_pacientes',N'list',N'z_paciente',NULL,N'default',N'Pacientes',N'follow-3',N'Pacientes',NULL,NULL,0,NULL,0,0,0,NULL,0,1)
+ ,(N'z_pg_perfil',N'view',N'sysUser',N'webdefault',N'default',N'Perfil',N'noicon',N'Perfil',NULL,NULL,0,NULL,0,0,0,NULL,0,1)
  ,(N'z_pg_progreso_paciente',N'list',NULL,NULL,N'default',N'Progreso',N'combine-chart',N'Progreso paciente',NULL,NULL,0,NULL,0,0,0,NULL,0,1)
+ ,(N'z_pg_tareas_list',N'list',N'z_tareas',NULL,N'default',N'Tareas',N'noicon',N'Tareas',NULL,NULL,0,NULL,0,0,0,NULL,0,1)
  ,(N'z_pg_tareas_paciente',N'list',N'z_tareas',NULL,N'default',N'Tareas',N'deliverynotes-2',N'Tareas Paciente',NULL,NULL,0,NULL,0,0,0,NULL,0,1)
 ) AS Source ([PageName],[TypeId],[ObjectName],[InterfaceName],[LayoutName],[Name],[IconName],[Descrip],[UrlRewrite],[Script],[ScriptActive],[Style],[RefreshInterval],[Sytem],[Generic],[BodyCssClass],[Offline],[OriginId])
 ON (Target.[PageName] = Source.[PageName])

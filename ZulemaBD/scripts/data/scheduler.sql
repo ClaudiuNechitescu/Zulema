@@ -4,7 +4,10 @@ BEGIN TRY
 
 MERGE INTO [Scheduler] AS Target
 USING (VALUES
-  (N'Calendario_Paciente',N'agendaWeek',1,1,1,1,NULL,NULL,NULL,NULL,NULL,NULL,N'06:00',N'19:00',1,0,N'00:15',N'currentUserId',N'view',N'modal1024x768',NULL,NULL,NULL,1,0,0,1)
+  (N'Calendario_Paciente',N'agendaWeek',1,1,1,1,N'IdPaciente',N'Nombre',NULL,N'<div class="row" style="display: flex;align-items: center; margin: 5px 15px;">
+  <img class="img-responsive img-circle" style="width: 40px;margin-right: 10px;" src="img/Avatars/avatar_blank.png" />
+  <span>{{Nombre}}</span>
+</div>',N'z_paciente',N'z_v_pacientes',N'06:00',N'19:00',1,0,N'00:15',N'currentReference',N'view',N'modal1024x768',NULL,NULL,NULL,1,0,0,1)
 ) AS Source ([SchedulerName],[ActiveMode],[MonthView],[AgendaWeekView],[AgendaDayView],[ListWeekView],[SQLValueField],[SQLDisplayField],[SQLFilterField],[DirectTemplate],[ObjectName],[ViewName],[MinTime],[MaxTime],[OnClickEvent],[AllDaySlot],[SlotDuration],[TokenDefault],[EventPageTypeId],[EventTargetId],[HolidaysObjectName],[HolidaysViewName],[DateHolidayField],[EventLimit],[DisableResize],[DisableDrag],[OriginId])
 ON (Target.[SchedulerName] = Source.[SchedulerName])
 WHEN MATCHED AND (

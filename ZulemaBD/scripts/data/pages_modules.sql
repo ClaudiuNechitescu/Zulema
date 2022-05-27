@@ -4,8 +4,18 @@ BEGIN TRY
 
 MERGE INTO [Pages_Modules] AS Target
 USING (VALUES
-  (N'z_pg_calendario_paciente',N'z_m_calendario',N'TopPosition',NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1)
- ,(N'z_pg_chat',N'sysmod-chatter',N'TopPosition',NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1)
+  (N'06443971-41C9-4888-8D56-123885F87A61',N'z_m_tareas_list',N'TopPosition',NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1)
+ ,(N'z_pg_calendario_paciente',N'z_m_calendario',N'TopPosition',NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1)
+ ,(N'z_pg_chat',N'z_m_chatter',N'RightPosition',NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1)
+ ,(N'z_pg_chat',N'z_m_especialistas_list',N'TopPosition',NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1)
+ ,(N'z_pg_especialistas',N'z_m_especialistas_list',N'TopPosition',NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1)
+ ,(N'z_pg_informes_paciente',N'z_m_informe_diario',N'TopPosition',NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1)
+ ,(N'z_pg_informes_paciente',N'z_m_informe_semanal',N'RightPosition',NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1)
+ ,(N'z_pg_paciente_view',N'sysmod-view-generic',N'TopPosition',NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1)
+ ,(N'z_pg_pacientes',N'z_m_pacientes',N'TopPosition',NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1)
+ ,(N'z_pg_perfil',N'z_m_perfil',N'TopPosition',NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1)
+ ,(N'z_pg_progreso_paciente',N'z_m_progreso',N'TopPosition',NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1)
+ ,(N'z_pg_tareas_list',N'z_m_tareas_list',N'TopPosition',NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1)
 ) AS Source ([PageName],[ModuleName],[LayoutPositionId],[RelationWhere],[Order],[SQlEnabled],[SQLEnabledDescrip],[Title],[IconName],[HeaderClass],[ModuleClass],[ConnStringID],[OriginId])
 ON (Target.[PageName] = Source.[PageName] AND Target.[ModuleName] = Source.[ModuleName])
 WHEN MATCHED AND (

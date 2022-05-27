@@ -1,3 +1,93 @@
 #mainLogo {
 	background-image:url('../img/logo.png');
 }
+
+.z_align-items-middle {
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+}
+
+.z_tareas_box {
+	border:2px solid;
+	border-radius:10px;
+}
+
+.br-10 {
+	border-radius:10px;
+}
+
+.b-none {
+	border:none;
+}
+
+flx-module {
+	border:none !important;
+}
+
+flx-schedulerview .header {
+	background: #feb9e5 !important;
+}
+
+flx-schedulerview .month {
+	background: #a4a4a4 !important;
+}
+
+flx-schedulerview .day.other {
+	color:rgb(106, 106, 106) !important;
+}
+
+
+
+.pp-employee-card {
+	display: flex;
+	justify-content: center;
+	padding: 7px;
+	max-height: 450px;
+	min-height: 200px;
+
+	flx-navbutton {
+		flex-grow: 1;
+
+		> div {
+			transition: all 0.3s ease-in-out 0s;
+			cursor: pointer;
+			background-color: white;
+
+			> div:first-of-type img {
+				width: 100%;
+				max-width: 100px;
+			}
+		}
+	}
+}
+
+.pp_flex-wrap {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.pp-border-hover {
+	border: 1px solid dbColor(borderModuleColor);
+	transition: all 0.3s ease-in-out 0s;
+
+	&:hover {
+		box-shadow: 0px 4px 6px 1px rgba(0,0,0,0.14);
+	}
+}
+
+.pp_align-items-middle {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.iflex-top-right {
+	position: absolute;
+	top: 1%;
+	right: 1%;
+}

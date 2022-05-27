@@ -2116,6 +2116,7 @@ declare namespace flexygo.api.sys {
     */
     class setSkinCacheVarsParams {
         VarValues: [flexygo.api.GenericKeyValueObject];
+        SkinId: String;
     }
     /**
     * api for UserSearchSettings

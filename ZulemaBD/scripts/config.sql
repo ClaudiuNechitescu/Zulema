@@ -1,0 +1,1 @@
+﻿UPDATE Interfaces SET Logo = '~/custom/logos/2-removebg-preview.png'

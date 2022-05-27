@@ -99,7 +99,7 @@
     </SqlCmdVariable>
   </ItemGroup>
   <ItemGroup>
-    <PreDeploy Include="scripts\Script.PreDeployment1.sql" />
+    <PreDeploy Include="scripts\config.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="..\Zulema\db\FlexyGoBD.dacpac">

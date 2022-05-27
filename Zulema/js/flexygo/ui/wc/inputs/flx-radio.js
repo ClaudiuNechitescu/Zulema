@@ -394,16 +394,18 @@ var flexygo;
                     //    this.setValueView(value);
                     //} else {
                     if (this.options.Multiple) {
-                        let opt = value.toString().split(this.options.Separator);
-                        for (let i = 0; i < opt.length; i++) {
-                            if (me.find('input[value="' + opt[i] + '"]').length === 0) {
-                                label = $('<label />');
-                                input = $('<input type="checkbox">');
-                                input.attr('value', opt[i]).attr('name', this.name);
-                                label.append(input).append(opt[i]);
-                                me.find('div').append(label);
+                        if (!flexygo.utils.isBlank(value)) {
+                            let opt = value.toString().split(this.options.Separator);
+                            for (let i = 0; i < opt.length; i++) {
+                                if (me.find('input[value="' + opt[i] + '"]').length === 0) {
+                                    label = $('<label />');
+                                    input = $('<input type="checkbox">');
+                                    input.attr('value', opt[i]).attr('name', this.name);
+                                    label.append(input).append(opt[i]);
+                                    me.find('div').append(label);
+                                }
+                                me.find('input[value="' + opt[i] + '"]').prop('checked', true);
                             }
-                            me.find('input[value="' + opt[i] + '"]').prop('checked', true);
                         }
                     }
                     else {

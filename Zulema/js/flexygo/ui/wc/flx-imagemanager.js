@@ -175,11 +175,13 @@ var flexygo;
                                 
                             </div>`;
                         }
-                        rendered += `<div class="im-pry-container im-wall im-transition im-background-container">
-                                <span class="background-elements">
+                        rendered += `<div class="im-pry-container im-wall im-transition im-background-container">`;
+                        if (!(this.mode.toLowerCase() == "view")) {
+                            rendered += `<span class="background-elements">
                                     <i class="flx-icon icon-upload-1"></i> ${flexygo.localization.translate('upload.info')}
-                                </span>
-                            </div>`;
+                             < /span>`;
+                        }
+                        rendered += `</div>`;
                         me.html(rendered);
                         me.find('label[method="upload"]').tooltip({ title: flexygo.localization.translate('imagemanager.upload'), placement: 'bottom', trigger: 'hover' });
                         me.find('button[method="downloadall"]').tooltip({ title: flexygo.localization.translate('imagemanager.downloadall'), placement: 'bottom', trigger: 'hover' });
@@ -300,27 +302,29 @@ var flexygo;
                 mainEvents() {
                     try {
                         let me = $(this);
-                        var dragDropZone = me.find('div.im-pry-container');
-                        dragDropZone.on('dragover', (ev) => {
-                            if (ev.originalEvent && ev.originalEvent.dataTransfer) {
-                                ev.originalEvent.dataTransfer.dropEffect = 'copy';
-                            }
-                            dragDropZone.css('background-color', 'rgba(0,0,0,0.5)');
-                            dragDropZone.find('.dtc-container, .dtc-btn-container button').css('background-color', 'rgba(0,0,0,0.5)');
-                        }).on('dragleave', (ev) => {
-                            dragDropZone.css('background-color', '');
-                            dragDropZone.find('.dtc-container, .dtc-btn-container button').css('background-color', '');
-                        }).on('drop', (ev) => {
-                            ev.preventDefault();
-                            dragDropZone.css('background-color', '');
-                            dragDropZone.find('.dtc-container, .dtc-btn-container button').css('background-color', '');
-                            let dEvent = ev.originalEvent;
-                            for (var i = 0; i < dEvent.dataTransfer.files.length; i++) {
-                                this.imagesPreRender = [];
-                                this.imagesLength = dEvent.dataTransfer.files.length;
-                                this.imageReader(dEvent.dataTransfer.files[i]);
-                            }
-                        });
+                        if (!(this.mode.toLowerCase() == "view")) {
+                            var dragDropZone = me.find('div.im-pry-container');
+                            dragDropZone.on('dragover', (ev) => {
+                                if (ev.originalEvent && ev.originalEvent.dataTransfer) {
+                                    ev.originalEvent.dataTransfer.dropEffect = 'copy';
+                                }
+                                dragDropZone.css('background-color', 'rgba(0,0,0,0.5)');
+                                dragDropZone.find('.dtc-container, .dtc-btn-container button').css('background-color', 'rgba(0,0,0,0.5)');
+                            }).on('dragleave', (ev) => {
+                                dragDropZone.css('background-color', '');
+                                dragDropZone.find('.dtc-container, .dtc-btn-container button').css('background-color', '');
+                            }).on('drop', (ev) => {
+                                ev.preventDefault();
+                                dragDropZone.css('background-color', '');
+                                dragDropZone.find('.dtc-container, .dtc-btn-container button').css('background-color', '');
+                                let dEvent = ev.originalEvent;
+                                for (var i = 0; i < dEvent.dataTransfer.files.length; i++) {
+                                    this.imagesPreRender = [];
+                                    this.imagesLength = dEvent.dataTransfer.files.length;
+                                    this.imageReader(dEvent.dataTransfer.files[i]);
+                                }
+                            });
+                        }
                         this.wall = new Freewall(me.find('div.im-wall'));
                         this.wall.reset({
                             selector: '.im-item',

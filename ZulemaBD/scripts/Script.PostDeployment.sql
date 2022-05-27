@@ -29,7 +29,7 @@ EXEC sp_MSforeachtable 'ALTER TABLE ? DISABLE TRIGGER all'
 :r .\data\security_objects_roles.sql
 :r .\data\toolbars.sql
 :r .\data\toolbars_buttons.sql
-
+:r .\config.sql
 IF (N'$(IsProduct)' = '1') BEGIN
        EXEC pNet_CreateOrUpdateDatabase $(OriginDatabaseName), N'$(CurrentDacVersion)'
 END

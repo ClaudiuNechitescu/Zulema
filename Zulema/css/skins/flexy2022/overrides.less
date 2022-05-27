@@ -118,6 +118,10 @@ h1, h2, h3, h4, h5 {
     border-collapse: collapse;
 }
 
+ flx-view .input-group .form-control.input-view {
+    border-bottom: none;
+}
+
 .form-control:focus, .input-group:focus {
     border-color: dbColor(InfoColor);
     outline: 0;
@@ -126,6 +130,9 @@ h1, h2, h3, h4, h5 {
     border-collapse: collapse;
 }
 
+.input-group .input-group-btn {
+    border:none;
+}
 .input-group .form-control, .input-group .input-group-addon {
     border-bottom: 0;
 }
@@ -164,6 +171,12 @@ flx-tag[Disabled] > div > div, flx-code[Disabled] > div {
 flx-tag > div {
     border-bottom: 1px solid dbColor(inputBorderColor);
 }
+
+flx-view flx-tag .form-control.input-view{
+
+    border-bottom: none;
+}
+
 
 
 .has-success .control-label, has-success .label {
@@ -837,10 +850,10 @@ flx-nav[mode=nav] li > .active:hover {
         border-bottom-color: dbColor(txtColor);
     }
     //LOBIBOX
-.lobibox.lobibox-confirm .lobibox-header {
-    background-color: darken(dbColor(bgColor),20);
-    color: dbColor(txtColor);
-}
+    .lobibox.lobibox-confirm .lobibox-header {
+        background-color: darken(dbColor(bgColor),20);
+        color: dbColor(txtColor);
+    }
 
     body[mode="dark"] .lobibox.lobibox-confirm .lobibox-header {
         background-color: lighten(dbColor(ModuleColor),3);
@@ -862,6 +875,19 @@ flx-nav[mode=nav] li > .active:hover {
     body[mode="dark"] .lobibox.lobibox-confirm .lobibox-footer {
         background-color: lighten(dbColor(ModuleColor),3);
     }
+
+    .lobibox.lobibox-progress .lobibox-header, .lobibox.lobibox-progress .lobibox-body .lobibox-progress-bar-wrapper .lobibox-progress-bar {
+        background-color: dbColor(DialogHeaderColor);
+    }
+
+    .lobibox.lobibox-progress .lobibox-body .lobibox-progress-outer [data-role=progress-text] {
+        color: dbcolor(HeaderColor);
+    }
+
+    .lobibox.lobibox-progress .lobibox-body .lobibox-progress-bar-wrapper {
+        background-color: #b9b8b8
+    }
+    
     //Code mirror
     flx-edit .CodeMirror {
         border-color: dbColor(inputBorderColor);

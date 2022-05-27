@@ -1,4 +1,4 @@
-import { r as registerInstance, n as readTask, f as writeTask, o as forceUpdate, j as h, l as Host, k as getElement } from './index-5503da0a.js';
+import { r as registerInstance, n as readTask, f as writeTask, o as forceUpdate, j as h, l as Host, k as getElement } from './index-86ac49ff.js';
 import { c as componentOnReady } from './helpers-719f4c54.js';
 
 const CELL_TYPE_ITEM = 'item';

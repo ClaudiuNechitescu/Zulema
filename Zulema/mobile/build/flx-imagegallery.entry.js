@@ -1,20 +1,20 @@
-import { r as registerInstance, j as h } from './index-5503da0a.js';
-import './ionic-global-86c7eac7.js';
+import { r as registerInstance, j as h } from './index-86ac49ff.js';
+import './ionic-global-0f98fe97.js';
 import { W as Webapi, a as storage } from './webapi-4204925e.js';
-import { s as sql, u as util, m as msg, F as FileOpener, L as LocalNotifications, C as ConftokenProvider } from './navigation-c2948117.js';
+import { s as sql, u as util, m as msg, F as FileOpener, L as LocalNotifications, C as ConftokenProvider } from './navigation-c0ba1353.js';
 import { j as jquery } from './jquery-ad132f97.js';
-import './utils-d1cfdf64.js';
+import './utils-16079bfd.js';
 import './helpers-719f4c54.js';
 import './animation-10ea33c3.js';
-import './index-e17c21bd.js';
-import './ios.transition-ced23128.js';
-import './md.transition-2a28325a.js';
+import './index-7d761b3a.js';
+import './ios.transition-a4a720d8.js';
+import './md.transition-b2e4eedc.js';
 import './cubic-bezier-93f47170.js';
 import './index-7fe827c3.js';
 import './index-b40d441b.js';
 import './hardware-back-button-aacf3d12.js';
-import './index-00f96f4e.js';
-import './overlays-7bcfaafb.js';
+import './index-50651ccc.js';
+import './overlays-5302658e.js';
 
 const flxImagegalleryCss = "ion-thumbnail{--size:150px;display:inline-block}ion-grid{padding:0}.modalFullscreen .modal-wrapper{--width:100%;--height:100%}.swiper-container{height:100%;background-color:rgba(0, 0, 0, 0.75)}.slide{display:flex;flex-direction:column;justify-content:center;background-repeat:no-repeat;background-size:contain;width:100%;height:100%;background-position:center center}.image-text{position:absolute;right:0px;bottom:30px;left:0px;background:rgba(0, 0, 0, 0.75);padding:4px 8px;color:white;margin:0;font:14px Sans-Serif}.loading{background:transparent url(./assets/img/loading.gif) no-repeat center center;background-size:40px 40px}.center{position:absolute;display:grid;place-items:center;width:100%;height:100%}.noResults{text-align:center;display:flex;flex-direction:column;align-items:center;font-size:3em;color:#7d7d7d61}ion-fab{z-index:99}ion-slides{z-index:1}ion-fab[vertical=\"top\"]{margin-top:constant(safe-area-inset-top);margin-top:env(safe-area-inset-top)}";
 

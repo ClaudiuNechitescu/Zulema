@@ -1,5 +1,5 @@
-import { f as writeTask, r as registerInstance, m as createEvent, n as readTask, j as h, l as Host, k as getElement } from './index-5503da0a.js';
-import { a as isPlatform, g as getIonMode } from './ionic-global-86c7eac7.js';
+import { f as writeTask, r as registerInstance, m as createEvent, n as readTask, j as h, l as Host, k as getElement } from './index-86ac49ff.js';
+import { a as isPlatform, g as getIonMode } from './ionic-global-0f98fe97.js';
 import { c as componentOnReady, f as clamp, g as getElementRoot, r as raf } from './helpers-719f4c54.js';
 import { c as createAnimation } from './animation-10ea33c3.js';
 import { g as getTimeGivenProgression } from './cubic-bezier-93f47170.js';

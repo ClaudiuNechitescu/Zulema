@@ -273,6 +273,30 @@ flx-dbcombo > ul, flx-multicombo > ul {
 
 flx-dbcombo > ul.mobile, flx-multicombo > ul.mobile {
     padding-top: 30px !important;
+    z-index: 999999;
+}
+
+html.tactilMode flx-multicombo label.closed i, html.tactilMode flx-dbcombo i.flx-icon {
+    font-size: 18px;
+}
+
+html.tactilMode flx-module span.cntButtons {
+    font-size: 18px;
+}
+
+html.tactilMode input[type="search"]::-webkit-search-cancel-button {
+    font-size: 20px;
+    margin-right: 15px;
+}
+
+flx-multicombo label.cleared i {
+    font-size: 12px;
+    color: #27477a;
+    margin-right: 15px;
+}
+
+flx-multicombo > div > div.bootstrap-tagsinput {
+    border: unset;
 }
 
 flx-dbcombo > ul li, flx-multicombo > ul li {

@@ -1,5 +1,5 @@
-import { r as registerInstance, o as forceUpdate, j as h, l as Host, k as getElement } from './index-5503da0a.js';
-import { g as getIonMode } from './ionic-global-86c7eac7.js';
+import { r as registerInstance, o as forceUpdate, j as h, l as Host, k as getElement } from './index-86ac49ff.js';
+import { g as getIonMode } from './ionic-global-0f98fe97.js';
 import { r as raf } from './helpers-719f4c54.js';
 import { o as openURL, c as createColorClasses, h as hostContext } from './theme-f934266c.js';
 

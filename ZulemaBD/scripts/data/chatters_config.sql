@@ -4,7 +4,7 @@ BEGIN TRY
 
 MERGE INTO [Chatters_Config] AS Target
 USING (VALUES
-  (N'z_paciente',N'Nombre',1)
+  (N'z_chat',N'IdEspecialista',1)
 ) AS Source ([ObjectName],[ObjectPK],[OriginId])
 ON (Target.[ObjectName] = Source.[ObjectName] AND Target.[ObjectPK] = Source.[ObjectPK])
 WHEN MATCHED AND (

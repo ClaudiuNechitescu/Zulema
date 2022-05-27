@@ -1,20 +1,20 @@
-import { r as registerInstance, j as h } from './index-5503da0a.js';
-import './ionic-global-86c7eac7.js';
+import { r as registerInstance, j as h } from './index-86ac49ff.js';
+import './ionic-global-0f98fe97.js';
 import { a as storage } from './webapi-4204925e.js';
-import { m as msg, u as util, n as nav } from './navigation-c2948117.js';
+import { m as msg, u as util, n as nav } from './navigation-c0ba1353.js';
 import './jquery-ad132f97.js';
-import './utils-d1cfdf64.js';
+import './utils-16079bfd.js';
 import './helpers-719f4c54.js';
 import './animation-10ea33c3.js';
-import './index-e17c21bd.js';
-import './ios.transition-ced23128.js';
-import './md.transition-2a28325a.js';
+import './index-7d761b3a.js';
+import './ios.transition-a4a720d8.js';
+import './md.transition-b2e4eedc.js';
 import './cubic-bezier-93f47170.js';
 import './index-7fe827c3.js';
 import './index-b40d441b.js';
 import './hardware-back-button-aacf3d12.js';
-import './index-00f96f4e.js';
-import './overlays-7bcfaafb.js';
+import './index-50651ccc.js';
+import './overlays-5302658e.js';
 
 const flxUsermenuCss = ".user-container{width:100%;margin:0px}.user-header{height:100px;margin-bottom:120px;display:flex;flex-direction:column;justify-content:center;align-items:center;background-image:linear-gradient(to bottom right, var(--ion-color-primary), var(--ion-color-header))}.profile{display:flex;flex-direction:column;align-items:center;margin-top:130px}.avatarImg{width:80px;height:80px;border-radius:50%;margin-bottom:16px}.complete-name{font-size:30px;font-weight:bold}.options{display:flex;flex-direction:column;justify-content:center;align-items:center}.option{padding-left:10%;padding-right:10%;box-shadow:0px 8px 15px rgba(0, 0, 0, 0.2);outline:none;border:none;border-radius:10px;width:80%;height:45px;margin-bottom:15px;background-color:var(--ion-color-header);color:var(--ion-color-tint)}";
 

@@ -1,4 +1,4 @@
-import { r as registerInstance, q as getContext, j as h, k as getElement } from './index-5503da0a.js';
+import { r as registerInstance, q as getContext, j as h, k as getElement } from './index-86ac49ff.js';
 
 /**
  * MediaStream ImageCapture polyfill

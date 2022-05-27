@@ -1,21 +1,21 @@
-import { r as registerInstance, j as h } from './index-5503da0a.js';
-import './ionic-global-86c7eac7.js';
+import { r as registerInstance, j as h } from './index-86ac49ff.js';
+import './ionic-global-0f98fe97.js';
 import { W as Webapi } from './webapi-4204925e.js';
-import { C as ConftokenProvider, n as nav, h as flxSync, u as util } from './navigation-c2948117.js';
+import { C as ConftokenProvider, n as nav, h as flxSync, u as util } from './navigation-c0ba1353.js';
 import { j as jquery } from './jquery-ad132f97.js';
-import './utils-d1cfdf64.js';
+import './utils-16079bfd.js';
 import './helpers-719f4c54.js';
 import './animation-10ea33c3.js';
-import './index-e17c21bd.js';
-import './ios.transition-ced23128.js';
-import './md.transition-2a28325a.js';
+import './index-7d761b3a.js';
+import './ios.transition-a4a720d8.js';
+import './md.transition-b2e4eedc.js';
 import './cubic-bezier-93f47170.js';
 import './index-7fe827c3.js';
 import './index-b40d441b.js';
 import './hardware-back-button-aacf3d12.js';
-import './index-00f96f4e.js';
-import './overlays-7bcfaafb.js';
-import { g as gps } from './location-678d6ac1.js';
+import './index-50651ccc.js';
+import './overlays-5302658e.js';
+import { g as gps } from './location-2b7ed562.js';
 
 const flxLoginCss = "ion-content.loginpage{--ion-background-color:#333333;--ion-background-color-rgb:51,51,51;--ion-color-primary:#2db7b0;--ion-text-color:#dddddd;--ion-text-color-rgb:221,221,221;--ion-color-step-50:#3c3c3c;--ion-color-step-100:#444444;--ion-color-step-150:#4d4d4d;--ion-color-step-200:#555555;--ion-color-step-250:#5e5e5e;--ion-color-step-300:#666666;--ion-color-step-350:#6f6f6f;--ion-color-step-400:#777777;--ion-color-step-450:#808080;--ion-color-step-500:#888888;--ion-color-step-550:#919191;--ion-color-step-600:#999999;--ion-color-step-650:#a2a2a2;--ion-color-step-700:#aaaaaa;--ion-color-step-750:#b3b3b3;--ion-color-step-800:#bbbbbb;--ion-color-step-850:#c4c4c4;--ion-color-step-900:#cccccc;--ion-color-step-950:#d5d5d5}ion-toolbar.applist{--ion-background-color:#2db7b0;color:white}";
 
@@ -31,7 +31,15 @@ const FlxLogin = class {
     }
     componentWillLoad() {
         this.refresh();
-        gps.showActivationMsg(null, false);
+        if (window.cordova)
+            gps.showActivationMsg(null, false);
+    }
+    componentDidLoad() {
+        jquery('#passInput').on('keyup', (e) => {
+            if (e.key === 'Enter' || e.keycode === 13) {
+                this.login();
+            }
+        });
     }
     async refresh() {
         let api = new Webapi();
@@ -218,7 +226,7 @@ const FlxLogin = class {
     }
     render() {
         return [
-            h("ion-content", { class: "ion-padding loginpage" }, h("ion-grid", null, h("ion-row", { class: "ion-justify-content-center", "size-md": "12", "size-lg": "12", "size-xs": "12" }, h("ion-col", { class: "ion-align-self-center", "size-md": "11", "size-lg": "6" }, h("div", { class: "ion-text-center ion-padding-horizontal" }, h("ion-label", null, h("img", { alt: "Logo", style: { maxHeight: "80px" }, src: "./assets/img/logo.png" }))), h("div", { class: "ion-padding" }, h("ion-item", null, h("ion-input", { name: "url", type: "url", onChange: (event) => this.changeURL(event), value: this.url, placeholder: "app.company.com" }), h("ion-icon", { name: "globe", slot: "start", class: "ion-align-self-center" })), h("ion-item", null, h("ion-input", { name: "user", type: "text", onInput: (ev) => this.user = ev.target.value, value: this.user, placeholder: "Username" }), h("ion-icon", { name: "person", slot: "start", class: "ion-align-self-center" })), h("ion-item", null, h("ion-input", { name: "pass", type: "password", onInput: (ev) => this.pass = ev.target.value, value: this.pass, placeholder: "Password" }), h("ion-icon", { name: "lock-closed", slot: "start", class: "ion-align-self-center" }), h("ion-icon", { class: "iconPass", name: "eye", slot: "end", onClick: (ev) => { this.togglePasswordMode(jquery(ev.currentTarget)); } }))), h("div", { class: "ion-padding" }, h("ion-button", { size: "large", color: "outstanding", shape: "round", expand: "block", onClick: () => this.login() }, "Login"))))))
+            h("ion-content", { class: "ion-padding loginpage" }, h("ion-grid", null, h("ion-row", { class: "ion-justify-content-center", "size-md": "12", "size-lg": "12", "size-xs": "12" }, h("ion-col", { class: "ion-align-self-center", "size-md": "11", "size-lg": "6" }, h("div", { class: "ion-text-center ion-padding-horizontal" }, h("ion-label", null, h("img", { alt: "Logo", style: { maxHeight: "80px" }, src: "./assets/img/logo.png" }))), h("div", { class: "ion-padding" }, h("ion-item", null, h("ion-input", { name: "url", type: "url", onChange: (event) => this.changeURL(event), value: this.url, placeholder: "app.company.com" }), h("ion-icon", { name: "globe", slot: "start", class: "ion-align-self-center" })), h("ion-item", null, h("ion-input", { name: "user", type: "text", onInput: (ev) => this.user = ev.target.value, value: this.user, placeholder: "Username" }), h("ion-icon", { name: "person", slot: "start", class: "ion-align-self-center" })), h("ion-item", null, h("ion-input", { id: "passInput", name: "pass", type: "password", onInput: (ev) => this.pass = ev.target.value, value: this.pass, placeholder: "Password" }), h("ion-icon", { name: "lock-closed", slot: "start", class: "ion-align-self-center" }), h("ion-icon", { class: "iconPass", name: "eye", slot: "end", onClick: (ev) => { this.togglePasswordMode(jquery(ev.currentTarget)); } }))), h("div", { class: "ion-padding" }, h("ion-button", { size: "large", color: "outstanding", shape: "round", expand: "block", onClick: () => this.login() }, "Login"))))))
         ];
     }
 };

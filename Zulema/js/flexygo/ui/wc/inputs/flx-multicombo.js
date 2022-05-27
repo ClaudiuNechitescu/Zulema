@@ -39,7 +39,7 @@ var flexygo;
                     let element = $(this);
                     let propName = element.attr('property');
                     if (propName && flexygo.utils.isBlank(this.options)) {
-                        let parentCtl = element.closest('flx-edit, flx-filter,flx-propertymanager, flx-view');
+                        let parentCtl = element.closest('flx-edit, flx-filter,flx-propertymanager, flx-view, flx-list');
                         if (parentCtl && parentCtl.length > 0) {
                             let wcParent = parentCtl[0];
                             if (parentCtl.is('flx-filter')) {
@@ -224,7 +224,7 @@ var flexygo;
                     }
                     if (attrName.toLowerCase() == 'property' && newVal && newVal != '') {
                         let propName = newVal;
-                        let parentCtl = element.closest('flx-edit, flx-filter,flx-propertymanager');
+                        let parentCtl = element.closest('flx-edit, flx-filter,flx-propertymanager,flx-view,flx-list');
                         if (parentCtl && parentCtl.length > 0) {
                             let wcParent = parentCtl[0];
                             if (parentCtl.is('flx-filter')) {
@@ -390,14 +390,19 @@ var flexygo;
                         let inputli = $('<li class="search"></li>');
                         let input = $('<input type="search" class="search form-control" autocomplete="off" />');
                         let datalist = $('<ul style="display:none" class="comboOptions" />');
-                        if (flexygo.utils.isSizeMobile()) {
+                        if (flexygo.utils.isSizeMobile() || flexygo.utils.isTactilModeActive()) {
                             datalist.addClass('mobile');
                             let mobileInputDiv = $('<div class="mobileinputdiv input-group"/>').appendTo(datalist);
                             this.mobileInput = $('<input type="text" class="form-control mobileinput" style="width: 100%" readonly />').appendTo(mobileInputDiv);
-                            this.mobileInput.tagsinput({ freeInput: false, itemValue: 'value', itemText: 'text', separator: '|' });
+                            this.mobileInput.tagsinput({ freeInput: false, itemValue: 'value', itemText: 'text', separator: this.options.Separator });
+                            $(`<label class="cleared input-group-btn">
+                         <label class="btn">
+                           <i class="flx-icon icon-arrow-2 flx-icon icon-close-11" />
+                         </label>
+                        </label>`).appendTo(mobileInputDiv);
                             $(`<label class="closed input-group-btn">
                          <label class="btn">
-                           <i class="flx-icon icon-close-1" />
+                           <i class="flx-icon icon-arrow-2 icon-flip-horizontal" />
                          </label>
                         </label>`).appendTo(mobileInputDiv);
                         }
@@ -423,7 +428,7 @@ var flexygo;
                                     this.hideOptions();
                                 });
                             }
-                            if (!flexygo.utils.isSizeMobile()) {
+                            if (!flexygo.utils.isSizeMobile() || !flexygo.utils.isTactilModeActive()) {
                                 $('#mainContent, main.pageContainer').on('scroll.multicombo', (e) => {
                                     this.hideOptions();
                                 });
@@ -449,6 +454,16 @@ var flexygo;
                             control.append(iconsRight);
                         }
                         control.append(datalist);
+                        $(`<label class="cleared input-group-btn">
+                         <label class="btn">
+                           <i class="flx-icon icon-arrow-2 flx-icon icon-close-11" />
+                         </label>
+                        </label>`).appendTo(control);
+                        control.find('label.cleared').on('click', (e) => {
+                            this.container.tagsinput('removeAll');
+                            if (this.mobileInput)
+                                this.mobileInput.tagsinput('removeAll');
+                        });
                         me.html(control);
                         me.append(datalist);
                         this.setOptions();
@@ -461,7 +476,7 @@ var flexygo;
                                 this.loadValues(0);
                             }
                         }
-                        this.container.tagsinput({ freeInput: false, itemValue: 'value', itemText: 'text', separator: '|' });
+                        this.container.tagsinput({ freeInput: false, itemValue: 'value', itemText: 'text', separator: this.options.Separator });
                         if (this.mobileInput) {
                             this.container.on('itemAdded', (event) => {
                                 if (event.item) {
@@ -522,7 +537,7 @@ var flexygo;
                             this.datalist.slideDown(250);
                         }
                         else {
-                            this.datalist.css({ position: 'fixed', top: 3, left: 5, width: "calc(100% - 10px)", 'max-height': (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) ? '48%' : '98%', 'padding-top': 30 });
+                            this.datalist.css({ position: 'fixed', top: 3, left: 5, width: "calc(100% - 10px)", 'max-height': (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) ? '48%' : (flexygo.utils.isTactilModeActive ? '50%' : '98%'), 'padding-top': 30 });
                             me.append('<div class="mobilebackground"/>');
                             this.datalist.fadeIn(250);
                             me.find('.mobileinputdiv .bootstrap-tagsinput input').hide();
@@ -666,6 +681,9 @@ var flexygo;
                     me.attr('value', this.getValue());
                     me.attr('text', this.getText());
                     this.triggerDependencies();
+                    if (flexygo.utils.isTactilModeActive()) {
+                        me.find('.tag.label.label-info').attr('data-role', 'remove');
+                    }
                 }
                 getIconButtons() {
                     let me = $(this);
@@ -780,8 +798,8 @@ var flexygo;
                         this.loadValues(0);
                     }
                     else {
-                        let txts = (text) ? text.split('|') : null;
-                        $.each(value.split('|'), (i, e) => {
+                        let txts = (text) ? text.split(this.options.Separator) : null;
+                        $.each(value.split(this.options.Separator), (i, e) => {
                             this.container.tagsinput('add', {
                                 'value': e, 'text': (txts && txts[i]) ? txts[i] : (this.datalist && this.datalist.find(`li[data-value="${e}"]`).attr('data-text')) ? this.datalist.find(`li[data-value="${e}"]`).attr('data-text') : e
                             });
@@ -792,12 +810,17 @@ var flexygo;
                         me.find('[data-role="remove"]').css('display', 'none');
                         me.closest('flx-multicombo').attr("disabled", "true");
                     }
+                    else {
+                        if (flexygo.utils.isTactilModeActive()) {
+                            me.find('.tag.label.label-info').attr('data-role', 'remove');
+                        }
+                    }
                     me.attr('value', this.getValue());
                     me.attr('text', this.getText());
                 }
                 getValue() {
                     let values = '';
-                    let separator = this.options.Separator || '|';
+                    let separator = this.options.Separator;
                     let itms = this.container.tagsinput('items');
                     for (let i = 0; i < itms.length; i++) {
                         if (i != 0) {
@@ -809,7 +832,7 @@ var flexygo;
                 }
                 getText() {
                     let text = '';
-                    let separator = this.options.Separator || '|';
+                    let separator = this.options.Separator;
                     let itms = this.container.tagsinput('items');
                     for (let i = 0; i < itms.length; i++) {
                         if (i != 0) {

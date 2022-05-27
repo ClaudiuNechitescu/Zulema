@@ -5,6 +5,7 @@ BEGIN TRY
 MERGE INTO [Plugins] AS Target
 USING (VALUES
   (N'FF90C16A-5369-4F2D-B14A-2193DE5AB68E',N'~/zulema/css/zulema.less',N'Zulema Stylesheet',100,1,1,1,1)
+ ,(N'1DCC69B2-CA2C-42C0-8F5C-2C75111E3D2B',N'~/zulema/js/zulema.JS',N'Zulema TS File',100,0,1,1,1)
 ) AS Source ([PluginId],[Path],[Descrip],[Order],[typeId],[Bundle],[Enabled],[OriginId])
 ON (Target.[PluginId] = Source.[PluginId])
 WHEN MATCHED AND (

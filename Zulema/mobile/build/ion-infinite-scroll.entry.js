@@ -1,5 +1,5 @@
-import { r as registerInstance, m as createEvent, f as writeTask, n as readTask, j as h, l as Host, k as getElement } from './index-5503da0a.js';
-import { g as getIonMode } from './ionic-global-86c7eac7.js';
+import { r as registerInstance, m as createEvent, f as writeTask, n as readTask, j as h, l as Host, k as getElement } from './index-86ac49ff.js';
+import { g as getIonMode } from './ionic-global-0f98fe97.js';
 
 const infiniteScrollCss = "ion-infinite-scroll{display:none;width:100%}.infinite-scroll-enabled{display:block}";
 
