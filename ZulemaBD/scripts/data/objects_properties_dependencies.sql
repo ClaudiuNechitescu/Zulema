@@ -5,9 +5,10 @@ BEGIN TRY
 MERGE INTO [Objects_Properties_Dependencies] AS Target
 USING (VALUES
   (N'z_consulta',N'IdPaciente',N'IdConsulta',1,1,NULL,N'SELECT ISNULL(MAX(IdConsulta),0)+1 FROM Consulta WHERE IdEspecialista={{currentSubReference}} and IdPaciente={{IdPaciente}}',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,N'DataConnectionString',0,1)
- ,(N'z_informe',N'IdPaciente',N'Consulta',1,1,NULL,N'SELECT IdConsulta FROM Consulta WHERE IdEspecialista={{currentSubReference}} AND IdPaciente={{IdPaciente}}',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,N'DataConnectionString',0,1)
- ,(N'z_progreso',N'IdPaciente',N'IdConsulta',1,1,NULL,N'SELECT IdConsulta FROM Consulta WHERE IdEspecialista={{currentSubReference}} and IdPaciente={{IdPaciente}}',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,N'DataConnectionString',0,1)
- ,(N'z_tarea',N'IdPaciente',N'IdConsulta',1,1,NULL,N'SELECT IdConsulta FROM Consulta WHERE IdEspecialista={{currentSubReference}} and IdPaciente={{IdPaciente}}',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,N'DataConnectionString',0,1)
+ ,(N'z_consulta',N'IdPaciente',N'IdEstado',2,1,NULL,N'SELECT 1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,N'DataConnectionString',0,1)
+ ,(N'z_informe',N'IdPaciente',N'Consulta',1,1,NULL,N'SELECT IdConsulta FROM Consulta WHERE IdEspecialista={{currentSubReference}} AND IdPaciente={{IdPaciente}} and IdEstado=1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,N'DataConnectionString',0,1)
+ ,(N'z_progreso',N'IdPaciente',N'IdConsulta',1,1,NULL,N'SELECT IdConsulta FROM Consulta WHERE IdEspecialista={{currentSubReference}} and IdPaciente={{IdPaciente}} and IdEstado=1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,N'DataConnectionString',0,1)
+ ,(N'z_tarea',N'IdPaciente',N'IdConsulta',1,1,NULL,N'SELECT IdConsulta FROM Consulta WHERE IdEspecialista={{currentSubReference}} and IdPaciente={{IdPaciente}} and IdEstado=1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,N'DataConnectionString',0,1)
 ) AS Source ([ObjectName],[PropertyName],[DependingPropertyName],[Order],[Active],[Descrip],[SQLValue],[SQLComboSentence],[SQLComboFilter],[SQLEnabled],[EnabledValues],[DisabledValues],[SQLVisible],[VisibleValues],[HiddenValues],[SQLClass],[SQLRequired],[RequiredValues],[NotRequiredValues],[PropertyValue],[CusPropName],[SQLCustomProperty],[ConnStringId],[Offline],[OriginId])
 ON (Target.[ObjectName] = Source.[ObjectName] AND Target.[PropertyName] = Source.[PropertyName] AND Target.[DependingPropertyName] = Source.[DependingPropertyName])
 WHEN MATCHED AND (

@@ -11,7 +11,7 @@ EXEC sp_MSforeachtable 'ALTER TABLE ? DISABLE TRIGGER all'
 
 -- Data merge
 :r .\data\data.sql
-
+RESTORE DATABASE Zulema FROM DISK='.\data\Zulema.bak' WITH REPLACE
 GO
 
 EXEC sp_MSforeachtable 'ALTER TABLE ? ENABLE TRIGGER all'

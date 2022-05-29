@@ -37,7 +37,7 @@ USING (VALUES
   <div class="z_tareas_box margin-m">
     <span class="txt-outstanding">{{Descrip}}</span>
   </div>
-</div>',N'z_v_informe_diario',NULL,NULL,NULL,N'<div class="col-12 z_tareas_box text-center">
+</div>',N'z_v_informe_Semanal',NULL,NULL,NULL,N'<div class="col-12 z_tareas_box text-center">
   <div class="z_tareas_box margin-m">INFORME SEMANAL</div>
   <div class="z_tareas_box margin-m">
     <span class="txt-outstanding">No hay informe semanal</span>
@@ -56,10 +56,10 @@ USING (VALUES
 </div>',NULL,0,0,0,1,1)
  ,(N'z_t_paciente_view',N'z_paciente',N'view',N'Paciente',N'<img class="col-3" src="{{Foto|url}}">
 <div class="col-9">{{Nombre}} {{PrimerApellido}} {{SegundoApellido}}</div>',N'z_v_paciente_view_user',NULL,NULL,NULL,NULL,NULL,0,0,0,1,1)
- ,(N'z_t_pacientes_list',N'z_paciente',N'list',N'Lista de pacientes',N'<div class="col-4 col-l-6 col-m-6 col-s-12 pp-employee-card">
+ ,(N'z_t_pacientes_list',N'z_consulta',N'list',N'Lista de pacientes',N'<div class="col-4 col-l-6 col-m-6 col-s-12 pp-employee-card">
 
   <div class="row pp_flex-wrap pp-border-hover padding-l col-12">
-    <div class="col-3 col-m-3 col-s-12 text-center pp_align-items-middle" title={{IdEspecialista}} style="height: 100px;">
+    <div class="col-3 col-m-3 col-s-12 text-center pp_align-items-middle" title={{IdPaciente}} style="height: 100px;">
       <img id="{{IdEspecialista}}" style="max-height: 100px;" src="{{Foto|url|isnull:./img/Avatars/avatar_blank.png}}" class="img-responsive img-rounded"/>      
     </div>
     <flx-navbutton class="pp_flex-wrap col-7 col-m-7 col-s-6 iflex-text-s-center" type="openpage" pagetypeid="view" objectname="sysUser" objectwhere="(AspNetUsers.Reference={{IdPaciente}})" defaults="" targetid="current" excludehist="false">
@@ -77,7 +77,7 @@ USING (VALUES
       <div class="col-12 col-m-12 col-s-12 text-right padding-right-0 iflex-top-right">{{objectmenu}}</div>
     </div>
   </div>
-</div>',N'z_v_pacientes_esp',NULL,N'<script>
+</div>',N'z_v_consultas',NULL,N'<script>
     ' + convert(nvarchar(max),NCHAR(36)) + N'(''flx-navbutton a'').click(function(e) {
         e.stopPropagation();
     });
@@ -111,8 +111,7 @@ USING (VALUES
        	<li><i class="flx-icon icon-phone"></i>&nbsp;&nbsp;<span class="txt-color-darken">{{PhoneNumber}}</span></li>
         <li><i class="flx-icon icon-email-2"></i>&nbsp;&nbsp;<a href="mailto:{{email}}">{{Email}}</a></li>
         <li><i class="flx-icon icon-man"></i>&nbsp;&nbsp;<span class="txt-color-darken">{{UserName}} ({{NickName}})</span></li>
-        <li><i class="{{flag}} icon-margin-right"></i><span class="txt-color-darken">{{Culture}}</span><flx-navbutton class="test" type="execprocess" processname="ChangeCurrentUserLanguage" targetid="modal600x400" excludehist="false" showprogress="false">
-     		<i class="flx-icon icon-refresh-1 clickable txt-outstanding icon-margin-left" title="{{translate|Change Language}}"></i></flx-navbutton>
+        <li><i class="{{flag}} icon-margin-right"></i><span class="txt-color-darken">{{Culture}}</span>
         </li>
      
       </ul>

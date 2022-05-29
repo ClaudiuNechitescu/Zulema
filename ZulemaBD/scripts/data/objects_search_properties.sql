@@ -4,13 +4,20 @@ BEGIN TRY
 
 MERGE INTO [Objects_Search_Properties] AS Target
 USING (VALUES
-  (N'15771F7F-6A5F-46AB-A2B5-986805BAA7FE',N'sysSetting',N'Active',N'sysSetting',2,5,N'Active',N'check',1)
+  (N'6C639828-13F3-4164-862D-2440C0BA5279',N'z_paciente',N'Nombre',N'z_paciente',2,0,N'Nombre',N'text',1)
+ ,(N'6C639828-13F3-4164-862D-2440C0BA5279',N'z_paciente',N'PrimerApellido',N'z_paciente',2,1,N'PrimerApellido',N'text',1)
+ ,(N'6C639828-13F3-4164-862D-2440C0BA5279',N'z_paciente',N'SegundoApellido',N'z_paciente',2,2,N'SegundoApellido',N'text',1)
+ ,(N'15771F7F-6A5F-46AB-A2B5-986805BAA7FE',N'sysSetting',N'Active',N'sysSetting',2,5,N'Active',N'check',1)
  ,(N'15771F7F-6A5F-46AB-A2B5-986805BAA7FE',N'sysSetting',N'Description',N'sysSetting',2,3,N'Description',N'text',1)
  ,(N'15771F7F-6A5F-46AB-A2B5-986805BAA7FE',N'sysSetting',N'GroupName',N'sysSetting',2,6,N'Group',N'dbcombo',1)
  ,(N'15771F7F-6A5F-46AB-A2B5-986805BAA7FE',N'sysSetting',N'IconName',N'sysSetting',2,2,N'Icon',N'dbcombo',1)
  ,(N'15771F7F-6A5F-46AB-A2B5-986805BAA7FE',N'sysSetting',N'SettingCustomProperty',N'sysSetting',2,4,N'Custom Property',N'dbcombo',1)
  ,(N'15771F7F-6A5F-46AB-A2B5-986805BAA7FE',N'sysSetting',N'SettingName',N'sysSetting',2,0,N'Name',N'text',1)
  ,(N'15771F7F-6A5F-46AB-A2B5-986805BAA7FE',N'sysSetting',N'SettingValue',N'sysSetting',2,1,N'Value',N'text',1)
+ ,(N'813E4F33-79DF-4C25-9C70-ACB7F2B44551',N'z_especialista',N'Departamento',N'z_especialista',2,3,N'Departamento',N'text',1)
+ ,(N'813E4F33-79DF-4C25-9C70-ACB7F2B44551',N'z_especialista',N'Nombre',N'z_especialista',2,0,N'Nombre',N'text',1)
+ ,(N'813E4F33-79DF-4C25-9C70-ACB7F2B44551',N'z_especialista',N'PrimerApellido',N'z_especialista',2,1,N'PrimerApellido',N'text',1)
+ ,(N'813E4F33-79DF-4C25-9C70-ACB7F2B44551',N'z_especialista',N'SegundoApellido',N'z_especialista',2,2,N'SegundoApellido',N'text',1)
 ) AS Source ([SearchId],[ObjectName],[PropertyName],[ObjectPath],[Size],[Order],[Label],[PropertySearchType],[OriginId])
 ON (Target.[SearchId] = Source.[SearchId] AND Target.[ObjectName] = Source.[ObjectName] AND Target.[PropertyName] = Source.[PropertyName])
 WHEN MATCHED AND (

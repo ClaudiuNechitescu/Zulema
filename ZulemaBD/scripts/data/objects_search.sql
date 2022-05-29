@@ -4,7 +4,8 @@ BEGIN TRY
 
 MERGE INTO [Objects_Search] AS Target
 USING (VALUES
-  (N'15771F7F-6A5F-46AB-A2B5-986805BAA7FE',N'sysSettings',N'Text',0,0,N'Text',1,NULL,N'( EXISTS (
+  (N'6C639828-13F3-4164-862D-2440C0BA5279',N'z_pacientes',N'Propiedades',0,0,N'Properties',1,NULL,NULL,1)
+ ,(N'15771F7F-6A5F-46AB-A2B5-986805BAA7FE',N'sysSettings',N'Text',0,0,N'Text',1,NULL,N'( EXISTS (
  SELECT * FROM [dbo].[Settings] FlxTblFilter 
  LEFT JOIN (SELECT IconName, CSSClass, Classification from Icons ) [FlxCmb1] ON [FlxCmb1].[IconName]=[Settings].[IconName] 
  LEFT JOIN (SELECT  [Descrip], [CustomPropName] from [Objects_Properties_Templates] ) [FlxCmb2] ON [FlxCmb2].[CustomPropName]=[Settings].[SettingCustomProperty] 
@@ -22,6 +23,7 @@ USING (VALUES
 
 ))
 ',1)
+ ,(N'813E4F33-79DF-4C25-9C70-ACB7F2B44551',N'z_especialistas',N'Propiedades',0,0,N'Properties',1,NULL,NULL,1)
 ) AS Source ([SearchId],[ObjectName],[Name],[Generic],[IsDefault],[Type],[Order],[UserId],[SQLSentence],[OriginId])
 ON (Target.[SearchId] = Source.[SearchId])
 WHEN MATCHED AND (

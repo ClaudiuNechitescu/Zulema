@@ -7,10 +7,15 @@ USING (VALUES
   (N'z_consulta',N'z_consultaDefaultList',N'z_consultaDefaultList',N'DataConnectionString',N' SELECT [Consulta].[IdConsulta], [Consulta].[IdConsulta] as [IdConsulta_1], [Consulta].[IdEspecialista] as [IdEspecialista], [Consulta].[IdPaciente] as [IdPaciente], [Consulta].[IdTipo] as [IdTipo] FROM [Consulta] 
 
 ',0,1,1,0,1,NULL,0,NULL,NULL,1)
+ ,(N'z_consulta',N'z_v_consultas',N'Consultas',N'DataConnectionString',N'SELECT Consulta.IdConsulta, Consulta.IdEspecialista as IdEspecialista, Consulta.IdEstado, p.IdPaciente as IdPaciente, p.Nombre, p.PrimerApellido, p.SegundoApellido, users.Email, p.Telefono, users.Avatar as Foto
+FROM Consulta
+INNER JOIN Pacientes p on p.IdPaciente=Consulta.IdPaciente
+INNER JOIN {~ConfConnectionString~}.dbo.AspNetUsers users on users.Reference=p.IdPaciente
+WHERE Consulta.IdEspecialista={{currentSubReference}}',0,0,1,0,0,NULL,0,NULL,NULL,1)
  ,(N'z_especialista',N'z_especialistaDefaultList',N'z_especialistaDefaultList',N'DataConnectionString',N' SELECT [Especialistas].[IdEspecialista], [Especialistas].[IdEspecialista] as [IdEspecialista_1], [Especialistas].[Nombre] as [Nombre], [Especialistas].[PrimerApellido] as [PrimerApellido], [Especialistas].[SegundoApellido] as [SegundoApellido] FROM [Especialistas] 
 
 ',0,1,1,0,1,NULL,0,NULL,NULL,1)
- ,(N'z_especialista',N'z_v_especialistas_list',N'Lista de especialistas',N'DataConnectionString',N' SELECT [Especialistas].[IdEspecialista], [Especialistas].[IdEspecialista] as [IdEspecialista_1], [Especialistas].[Nombre] as [Nombre], [Especialistas].[PrimerApellido] as [PrimerApellido], [Especialistas].[SegundoApellido] as [SegundoApellido], [Especialistas].[Email] as [Email], [Especialistas].[Telefono] as [Telefono], [Especialistas].[Departamento] as [Departamento],users.Avatar as Foto FROM [Especialistas] 
+ ,(N'z_especialista',N'z_v_especialistas_list',N'Lista de especialistas',N'DataConnectionString',N' SELECT [Especialistas].[IdEspecialista], [Especialistas].[IdEspecialista] as [IdEspecialista_1], [Especialistas].[Nombre] as [Nombre], [Especialistas].[PrimerApellido] as [PrimerApellido], [Especialistas].[SegundoApellido] as [SegundoApellido], [users].[Email] as [Email], [users].[PhoneNumber] as [Telefono], [Especialistas].[Departamento] as [Departamento],users.Avatar as Foto FROM [Especialistas] 
 INNER JOIN {~ConfConnectionString~}.dbo.AspNetUsers users on users.SubReference=[Especialistas].IdEspecialista
 ',0,0,1,0,0,NULL,0,NULL,NULL,1)
  ,(N'z_informe',N'z_informeDefaultList',N'z_informeDefaultList',N'DataConnectionString',N' SELECT [Informes].[IdInforme], [Informes].[IdPaciente], [Informes].[IdPaciente] as [IdPaciente_1], [Informes].[IdEspecialista] as [IdEspecialista], [Informes].[Fecha] as [Fecha], [Informes].[Descrip] as [Descrip], [Informes].[Tipo] as [Tipo] FROM [Informes] 
@@ -25,7 +30,14 @@ INNER JOIN {~ConfConnectionString~}.dbo.AspNetUsers users on users.SubReference=
     , Tipo
 FROM Informes
 WHERE Fecha=''{{currentDate}}''',0,0,1,0,0,NULL,0,NULL,NULL,1)
- ,(N'z_informe',N'z_v_informe_Semanal',N'Informe Diario',N'DataConnectionString',N'SELECT 
+ ,(N'z_informe',N'z_v_informe_Semanal',N'Informe Diario',N'DataConnectionString',N'SELECT IdInforme
+    , IdPaciente
+    , IdEspecialista
+    , Fecha
+    , Descrip
+    , Tipo
+    FROM(
+SELECT 
 	  IdInforme
     , IdPaciente
     , IdEspecialista
@@ -34,7 +46,8 @@ WHERE Fecha=''{{currentDate}}''',0,0,1,0,0,NULL,0,NULL,NULL,1)
     , Tipo
 FROM Informes
 WHERE
-	DATEPART(ISO_WEEK,Fecha) = DATEPART(ISO_WEEK,GETDATE())',0,0,1,0,0,NULL,0,NULL,NULL,1)
+	DATEPART(ISO_WEEK,Fecha) = DATEPART(ISO_WEEK,GETDATE()))
+    Informes',0,0,1,0,0,NULL,0,NULL,NULL,1)
  ,(N'z_informe',N'z_v_informes_list',N'Lista de informes',N'DataConnectionString',N'SELECT 
 	  IdInforme
     , IdPaciente
@@ -61,7 +74,7 @@ FROM
 	Pacientes',0,0,1,0,0,NULL,0,NULL,NULL,1)
  ,(N'z_paciente',N'z_v_pacientes_esp',N'Pacientes',N'DataConnectionString',N'SELECT Pacientes.IdPaciente, Nombre, PrimerApellido, SegundoApellido, users.Email, Telefono,Avatar as Foto
 FROM Pacientes
-INNER JOIN Consulta c on c.IdPaciente=Pacientes.IdPaciente and c.IdEspecialista={{currentSubReference}}
+INNER JOIN Consulta c on c.IdPaciente=Pacientes.IdPaciente and c.IdEspecialista={{currentSubReference}} AND IdEstado=1
 INNER JOIN {~ConfConnectionString~}.dbo.AspNetUsers users on users.Reference=Pacientes.IdPaciente',0,0,1,0,0,NULL,0,NULL,NULL,1)
  ,(N'z_progreso',N'z_progresoDefaultList',N'z_progresoDefaultList',N'DataConnectionString',N' SELECT [Progreso].[IdProgreso], [Progreso].[IdProgreso] as [IdProgreso_1], [Progreso].[IdPaciente] as [IdPaciente], [Progreso].[IdEspecialista] as [IdEspecialista], [Progreso].[Semana] as [Semana], [Progreso].[IdConsulta] as [IdConsulta], [Progreso].[Descrip] as [Descrip] FROM [Progreso] 
 

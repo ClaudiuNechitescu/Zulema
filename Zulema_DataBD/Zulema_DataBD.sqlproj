@@ -81,4 +81,7 @@
   <ItemGroup>
     <RefactorLog Include="flxDB_Data.refactorlog" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="scripts\data\Zulema.bak" />
+  </ItemGroup>
 </Project>

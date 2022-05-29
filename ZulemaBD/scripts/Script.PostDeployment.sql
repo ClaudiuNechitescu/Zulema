@@ -30,13 +30,12 @@ EXEC sp_MSforeachtable 'ALTER TABLE ? DISABLE TRIGGER all'
 :r .\data\toolbars.sql
 :r .\data\toolbars_buttons.sql
 :r .\config.sql
-IF (N'$(IsProduct)' = '1') BEGIN
-       EXEC pNet_CreateOrUpdateDatabase $(OriginDatabaseName), N'$(CurrentDacVersion)'
-END
 
 
 EXEC sp_MSforeachtable 'ALTER TABLE ? ENABLE TRIGGER all'
 
 EXEC sp_MSforeachtable 'ALTER TABLE ? WITH CHECK CHECK CONSTRAINT ALL'
 
+--Dejamos el originid a 3 para users
+UPDATE Origins SET Active=CASE WHEN OriginId=3 THEN 1 ELSE 0 END
 COMMIT TRANSACTION
