@@ -11,6 +11,10 @@ Para poder acceder al proyecto:
     7.2.-Editamos las líneas del xml correspondientes a <connectionStrings>, en ConfConnectionString establecemos como Data Source la instancia de SQL Server, Initial Catalog es el nombre de la base de datos de configuración, después especificamos nombre de usuario y contraseña del SQL Server.
     7.3.-Lo mismo para DataConnectionString.
 8.-Guardamos todos los cambios e iniciamos el proyecto.
+	-Usuario Especialista 
+		magegr --> -aZ123456
+	-Usuario Paciente
+		clne --> -aZ123456
 
 --Para definir usuario especialista-paciente
 	--Esto es una funcionalidad no programada, no se asigna automáticamente el IdEspecialista.
