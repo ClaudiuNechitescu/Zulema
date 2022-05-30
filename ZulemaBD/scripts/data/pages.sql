@@ -8,6 +8,7 @@ USING (VALUES
  ,(N'z_pg_calendario_especialista',N'generic',NULL,NULL,N'default',N'Calendario',N'vcalendar-1',N'Calendario paciente',NULL,NULL,0,NULL,0,0,0,NULL,0,1)
  ,(N'z_pg_calendario_paciente',N'generic',NULL,NULL,N'default',N'Calendario',N'vcalendar-1',N'Calendario paciente',NULL,NULL,0,NULL,0,0,0,NULL,0,1)
  ,(N'z_pg_chat',N'generic',N'z_chat',NULL,N'syslayout-5',N'Chat',N'chat-online-1',N'Chat',NULL,NULL,0,NULL,0,0,0,NULL,0,1)
+ ,(N'z_pg_consultas_list',N'list',N'z_consulta',NULL,N'default',N'Consultas',N'noicon',N'Consultas',NULL,NULL,0,NULL,0,0,0,NULL,0,1)
  ,(N'z_pg_especialistas',N'list',N'z_especialista',NULL,N'default',N'Especialistas',N'nurse1',N'Especialistas',NULL,NULL,0,NULL,0,0,0,NULL,0,1)
  ,(N'z_pg_informes_paciente',N'list',NULL,NULL,N'syslayout-14',N'Informes',N'file-text-o',N'Informes paciente',NULL,NULL,0,NULL,0,0,0,NULL,0,1)
  ,(N'z_pg_inicio_guest',N'generic',NULL,N'webguest',N'default',N'Página inicio',N'noicon',N'Página inicio',NULL,NULL,0,N'body{background-image:url(''/zulema/img/principal.jpg'')}',0,0,0,NULL,0,1)

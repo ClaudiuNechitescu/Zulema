@@ -11,3 +11,12 @@ Para poder acceder al proyecto:
     7.2.-Editamos las líneas del xml correspondientes a <connectionStrings>, en ConfConnectionString establecemos como Data Source la instancia de SQL Server, Initial Catalog es el nombre de la base de datos de configuración, después especificamos nombre de usuario y contraseña del SQL Server.
     7.3.-Lo mismo para DataConnectionString.
 8.-Guardamos todos los cambios e iniciamos el proyecto.
+
+--Para definir usuario especialista-paciente
+	--Esto es una funcionalidad no programada, no se asigna automáticamente el IdEspecialista.
+1.-En el menú superior, clicamos en herramientas, modo desarrollador.
+2.-En el lateral derecho, le damos click a la pestaña Page Config. --> Desarrollador-->Area de diseño
+3.- Seguridad-->Usuarios-->Clicamos en el menú contextual del usuario a modificar-->Editar
+4.-Para definir un especialista nos dirigiremos al apartado Referencias externas y le especificaremos la Referencia 2 igual que el IdEspecialista en la tabla Especialistas, en la base de datos de datos.
+5.-Para definir un paciente el procedimiento es el mismo que el anterior, pero definiendo la Referencia igual que el IdPaciente.
+	Para ambos casos, la referencia que no se especifica, dejarla vacía.

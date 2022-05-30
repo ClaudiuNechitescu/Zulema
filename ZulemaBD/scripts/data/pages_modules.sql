@@ -8,6 +8,7 @@ USING (VALUES
  ,(N'z_pg_calendario_paciente',N'z_m_calendario',N'TopPosition',NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1)
  ,(N'z_pg_chat',N'z_m_chatter',N'RightPosition',NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1)
  ,(N'z_pg_chat',N'z_m_especialistas_list',N'TopPosition',NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1)
+ ,(N'z_pg_consultas_list',N'z_m_consultas_list',N'TopPosition',NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1)
  ,(N'z_pg_especialistas',N'z_m_especialistas_list',N'TopPosition',NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1)
  ,(N'z_pg_informes_paciente',N'z_m_informe_diario',N'TopPosition',NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1)
  ,(N'z_pg_informes_paciente',N'z_m_informe_semanal',N'RightPosition',NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1)

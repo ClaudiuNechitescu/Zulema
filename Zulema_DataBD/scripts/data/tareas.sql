@@ -1,5 +1,5 @@
-CREATE TABLE [dbo].[Tareas](
-	[IdTarea] [int] NOT NULL,
+CREATE TABLE [Tareas](
+	[IdTarea] [int] identity(1,1) NOT NULL,
 	[IdPaciente] [int] NOT NULL,
 	[IdConsulta] [int] NOT NULL,
 	[Descrip] [nvarchar](max) NULL,
@@ -14,8 +14,7 @@ CREATE TABLE [dbo].[Tareas](
 	[IdTarea] ASC,
 	[IdPaciente] ASC,
 	[IdConsulta] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+)
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
 GO
-
-

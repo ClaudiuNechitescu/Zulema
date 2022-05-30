@@ -68,12 +68,17 @@
     <Folder Include="scripts\data" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Stored Procedures\sp_generate_merge.sql" />
-    <Build Include="dbo\Tables\Sample_Table.sql" />
-    <Build Include="dbo\Views\vSample_View.sql" />
-    <None Include="scripts\data\data.sql" />
-    <Build Include="dbo\Stored Procedures\pSampleProcedure.sql" />
-    <Build Include="dbo\Functions\funPrintError.sql" />
+    <None Include="dbo\Stored Procedures\sp_generate_merge.sql" />
+    <None Include="dbo\Views\vSample_View.sql" />
+    <None Include="dbo\Functions\funPrintError.sql" />
+    <None Include="scripts\data\consulta.sql" />
+    <None Include="scripts\data\consulta_estados.sql" />
+    <None Include="scripts\data\especialistas.sql" />
+    <None Include="scripts\data\informes.sql" />
+    <None Include="scripts\data\pacientes.sql" />
+    <None Include="scripts\data\progreso.sql" />
+    <None Include="scripts\data\tareas.sql" />
+    <None Include="scripts\data\tareas_tipos.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="scripts\Script.PostDeployment.sql" />
@@ -82,6 +87,6 @@
     <RefactorLog Include="flxDB_Data.refactorlog" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="scripts\data\Zulema.bak" />
+    <None Include="scripts\data\consulta_trigger_insert.sql" />
   </ItemGroup>
 </Project>

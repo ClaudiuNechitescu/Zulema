@@ -1,4 +1,4 @@
-CREATE TABLE [dbo].[Pacientes](
+CREATE TABLE [Pacientes](
 	[IdPaciente] [int] IDENTITY(1,1) NOT NULL,
 	[Nombre] [nvarchar](100) NULL,
 	[PrimerApellido] [nvarchar](100) NULL,
@@ -9,8 +9,11 @@ CREATE TABLE [dbo].[Pacientes](
  CONSTRAINT [PK_Pacientes] PRIMARY KEY CLUSTERED 
 (
 	[IdPaciente] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+)
 ) ON [PRIMARY]
+
+INSERT INTO Pacientes VALUES('Claudiu Andrei','Nechitescu','','clne@floridauniversitaria.es','601366399','')
+
+
+
 GO
-
-

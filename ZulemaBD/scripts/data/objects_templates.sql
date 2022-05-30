@@ -131,7 +131,16 @@ USING (VALUES
     </div>
   </div>
 </div>',N'z_v_tareas_initial_view',NULL,N'<div>
-  ',N'</div>',N'<div class="txt-outstanding">No hay tareas para mostrar</div>',NULL,0,0,0,1,1)
+  ',N'</div>',N'<div class="col-6 z_align-items-middle z_outside-box">
+  <div class="col-12 z_tareas_box margin-m">
+    <h1 class="col-12 z_align-items-middle"><button class="col-6 btn btn-default br-10" style="cursor:default;" onclick="">TAREAS</button></h1>
+    <div class="col-12 text-center">
+      <div>
+        <span class="txt-outstanding">No hay tareas para mostrar</span>
+      </div>
+    </div>
+  </div>
+</div>',NULL,0,0,0,1,1)
 ) AS Source ([TemplateId],[ObjectName],[TypeId],[Descrip],[Body],[ViewName],[WhereSentence],[Header],[Footer],[Empty],[ModuleClass],[IsDefault],[Offline],[UserDefinedGroups],[Active],[OriginId])
 ON (Target.[TemplateId] = Source.[TemplateId])
 WHEN MATCHED AND (

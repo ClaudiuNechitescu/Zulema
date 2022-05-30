@@ -10,9 +10,10 @@ EXEC sp_MSforeachtable 'ALTER TABLE ? NOCHECK CONSTRAINT all'
 EXEC sp_MSforeachtable 'ALTER TABLE ? DISABLE TRIGGER all'
 
 -- Data merge
-:r .\data\data.sql
+
 :r .\data\consulta.sql
 :r .\data\consulta_estados.sql
+:r .\data\consulta_trigger_insert.sql
 :r .\data\especialistas.sql
 :r .\data\informes.sql
 :r .\data\pacientes.sql

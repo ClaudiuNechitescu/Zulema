@@ -1,4 +1,4 @@
-CREATE TABLE [dbo].[Especialistas](
+CREATE TABLE [Especialistas](
 	[IdEspecialista] [int] IDENTITY(1,1) NOT NULL,
 	[Nombre] [varchar](100) NULL,
 	[PrimerApellido] [varchar](100) NULL,
@@ -10,8 +10,9 @@ CREATE TABLE [dbo].[Especialistas](
 PRIMARY KEY CLUSTERED 
 (
 	[IdEspecialista] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+)
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+INSERT INTO Especialistas VALUES('María','Genís','Grau','mariagenis81@gmail.com','','Psicología','')
+
 GO
-
-

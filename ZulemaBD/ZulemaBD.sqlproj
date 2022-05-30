@@ -84,6 +84,20 @@
     <None Include="scripts\data\security_objects_roles.sql" />
     <None Include="scripts\data\toolbars.sql" />
     <None Include="scripts\data\toolbars_buttons.sql" />
+    <None Include="scripts\config.sql" />
+    <None Include="scripts\data\skins_variables.sql" />
+    <None Include="scripts\data\skins.sql" />
+    <None Include="scripts\data\security_pages_roles.sql" />
+    <None Include="scripts\data\scheduler_objects.sql" />
+    <None Include="scripts\data\scheduler.sql" />
+    <None Include="scripts\data\plugins.sql" />
+    <None Include="scripts\data\objects_search_properties.sql" />
+    <None Include="scripts\data\objects_search.sql" />
+    <None Include="scripts\data\objects_objects.sql" />
+    <None Include="scripts\data\objects_presets.sql" />
+    <None Include="scripts\data\modules_pager_types.sql" />
+    <None Include="scripts\data\chatters_config.sql" />
+    <None Include="scripts\data\aspnetroles.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="scripts\Script.PostDeployment.sql" />
@@ -97,9 +111,6 @@
       <DefaultValue>NULL</DefaultValue>
       <Value>$(SqlCmdVar__3)</Value>
     </SqlCmdVariable>
-  </ItemGroup>
-  <ItemGroup>
-    <PreDeploy Include="scripts\config.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="..\Zulema\db\FlexyGoBD.dacpac">
