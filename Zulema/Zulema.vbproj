@@ -486,7 +486,7 @@
     <Content Include="css\animate.css" />
     <Content Include="css\login\favicon.ico" />
     <Content Include="css\login\login.css" />
-    <Content Include="css\login\login_isaval.css" />
+    <Content Include="css\login\login_zulema.css" />
     <Content Include="css\pygments.css" />
     <Content Include="css\skins\default\fonts\flags\flag-icon.css" />
     <Content Include="css\skins\default\fonts\flags\flags1.svg" />
